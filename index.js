@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(input){
-	const el = document.createElement('textarea');
+	var el = document.createElement('textarea');
 
 	el.value = input;
 
@@ -12,8 +12,8 @@ module.exports = function(input){
 	el.style.left = '-9999px';
 	el.style.fontSize = '12pt'; // Prevent zooming on iOS
 
-	const selection = document.getSelection();
-	let originalRange = false;
+	var selection = document.getSelection();
+	var originalRange = false;
 	if (selection.rangeCount > 0) {
 		originalRange = selection.getRangeAt(0);
 	}
@@ -25,7 +25,7 @@ module.exports = function(input){
 	el.selectionStart = 0;
 	el.selectionEnd = input.length;
 
-	let success = false;
+	var success = false;
 	try {
 		success = document.execCommand('copy');
 	} catch (err) {}
